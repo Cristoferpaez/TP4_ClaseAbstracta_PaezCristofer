@@ -41,7 +41,7 @@ namespace animal
 
             public override void MakeSound()
             {
-                Console.WriteLine("El pollo hace pio pio pio");
+                Console.WriteLine("El pollo hace pio pio");
             }
         }
 
