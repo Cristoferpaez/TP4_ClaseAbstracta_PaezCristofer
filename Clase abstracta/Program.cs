@@ -1,13 +1,15 @@
 ﻿using System;
-using System.Timers;
+
 namespace animal
 {
     class Program
     {
         abstract class Animal
         {
-            public abstract void animalSound();
-            public void sleep()
+            public abstract string Type { get; }
+            public abstract void MakeSound();
+
+            public void Sleep()
             {
                 Console.WriteLine("Zzz");
             }
@@ -15,55 +17,66 @@ namespace animal
 
         class Pig : Animal
         {
+            public override string Type => "Mamífero";
 
-            public override void animalSound() 
+            public override void MakeSound()
             {
-                Console.WriteLine("el cerdo hace oing");
+                Console.WriteLine("El cerdo hace oing");
             }
         }
 
         class Dog : Animal
         {
-            public override void animalSound()
+            public override string Type => "Mamífero";
+
+            public override void MakeSound()
             {
-                Console.WriteLine("el perro hace guau guau");
+                Console.WriteLine("El perro hace guau guau");
+            }
+        }
+
+        class Chicken : Animal
+        {
+            public override string Type => "ave";
+
+            public override void MakeSound()
+            {
+                Console.WriteLine("El pollo hace pio pio pio");
             }
         }
 
         class Cat : Animal
         {
-            public override void animalSound()
+            public override string Type => "Mamífero";
+
+            public override void MakeSound()
             {
-                Console.WriteLine("el gato hace miau miau");
+                Console.WriteLine("El gato hace miau miau");
             }
         }
-
 
         static void Main(string[] args)
         {
             Console.WriteLine("---------ANIMALES--------");
-            Pig Cerdo1 = new Pig();
-            Cerdo1.animalSound();
 
-            Dog Dog1 = new Dog();
-            Dog1.animalSound();
-            
-            Cat Cat1 = new Cat();
-            Cat1.animalSound();
+            Pig cerdo1 = new Pig();
+            Console.WriteLine($"Tipo: {cerdo1.Type}");
+            cerdo1.MakeSound();
 
+            Dog perro1 = new Dog();
+            Console.WriteLine($"Tipo: {perro1.Type}");
+            perro1.MakeSound();
 
+            Chicken pollo1 = new Chicken();
+            Console.WriteLine($"Tipo: {pollo1.Type}");
+            pollo1.MakeSound();
+
+            Cat gato1 = new Cat();
+            Console.WriteLine($"Tipo: {gato1.Type}");
+            gato1.MakeSound();
         }
-
-
-
     }
-
-
-
-
-
 }
-
 
 
 
